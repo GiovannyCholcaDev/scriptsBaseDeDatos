@@ -1,0 +1,27 @@
+sql
+user: adminItsJapon
+contraseña: baseDeDatos//*
+
+
+
+--create database pumablog
+use pumablog
+
+
+
+aws
+base itsjapon
+pass: baseDeDatos2japon
+
+Nombre de usuario maestro
+admin
+Contraseña maestra
+baseDeDatos2japon
+
+
+Nombre de usuario maestro
+admin
+Contraseña maestra
+baseDeDatos2japon
+Punto de enlace
+itsjapon.cc09no1kilik.us-east-2.rds.amazonaws.com
