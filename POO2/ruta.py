@@ -2,6 +2,7 @@ class Coche:
     gasolina = 0
     personas = ''
     kilometraje = 0
+    
     tanqueLleno = True
     origen = ''
     destino = ''
@@ -18,7 +19,6 @@ class Coche:
     def arrancar(self):
         if self.gasolina > 0:
             print ("Arranca")
-            return
         else:
             print ("No arranca")
 
@@ -29,9 +29,10 @@ class Coche:
         else:
             print ('No se mueve')
 
-    def conducir(self, gasolina, personas, kilometraje):
+    def conducir(self, combustible, personas, kilometraje):
         if self.gasolina > 0:
-            self.gasolina -= gasolina
+            self.gasolina -= combustible
+            self.gasolina = self.gasolina - combustible
             self.personas -= personas
             self.kilometraje += kilometraje
         else:
@@ -57,7 +58,7 @@ class Coche:
        
 car = Coche(10, 10, 1500)
 
-car.origenDestino('Matriz ITS-Japon','Campues Sur')
+car.origenDestino('Matriz ITS-Japon','Campus Sur')
 car.arrancar()
 car.conducir(3,5,100)
 car.imprimir()
