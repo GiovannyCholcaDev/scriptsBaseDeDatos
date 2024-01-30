@@ -1,7 +1,10 @@
-sql
+sql azure
 user: adminItsJapon
 contraseña: baseDeDatos//*
 
+sql local:
+adminJapon
+baseDeDatos//*
 
 
 --create database pumablog
