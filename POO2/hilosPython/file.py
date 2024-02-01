@@ -14,22 +14,23 @@ cursor = conexion.cursor()
 
 # Ejecutar una consulta INSERT para insertar un nuevo cliente
 consulta_insert = """
-    INSERT INTO direccionesips (direccion)
-    VALUES (%s)
+    INSERT INTO direccionesips (direccion, fecha)
+    VALUES (%s, NOW() )
 """
 
 #manejador de archivos
 #seleccionar archivo de una ruta
 file_path = 'ipsc.txt'
 
-#recorrer el archivo
-print('Ini:', datetime.now())
+#print(datetime.now())
+#recorrer el archivo  
 file = open(file_path)
 for line in file.readlines():
     ip = line.strip()
     cursor.execute(consulta_insert, (ip,))
-print('Fin:', datetime.now())
-file.close()
+
+
+#print(datetime.now())
 
 # Confirmar la transacción
 conexion.commit()
