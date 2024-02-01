@@ -19,7 +19,8 @@ print(total)
 file.close()
 
 #recorrer el archivo
+"""
 file = open(file_path)
 for line in file.readlines():
     print(line)
-file.close()
+file.close()"""
