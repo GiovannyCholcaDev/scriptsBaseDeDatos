@@ -1,5 +1,7 @@
 import mysql.connector
 
+
+
 class MySQLConnection:
     def __init__(self, host, user, password, database):
         self.host = host
@@ -31,7 +33,7 @@ class MySQLConnection:
     def get_connection(self):
         return self.connection
 
-
+"""
 # Ejemplo de uso
 if __name__ == "__main__":
     # Crear una instancia de MySQLConnection
@@ -52,3 +54,4 @@ if __name__ == "__main__":
 
     # Cerrar la conexión cuando hayas terminado
     connection_manager.close()
+"""
