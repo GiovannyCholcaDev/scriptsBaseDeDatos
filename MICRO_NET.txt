@@ -1,0 +1,54 @@
+HERRAMIENTAS A UTILIZAR EN EL CURSO
+===================================
+
+Estimado alumno, es importante que puede habilitar las siguientes herramientas o programas antes de iniciar el curso.
+
+Windows 10 o superior
+NOTA: Si usted opta por desarrollar el curso con un SO diferente (linux o mac) el instructor no podrá apoyarle si es que tuviera algún problema en el desarrollo de las clases a causa del SO.
+
+Visual Studio 2022 con el sdk de NET 7
+https://visualstudio.microsoft.com/es/vs/community/
+
+Docker
+https://docs.docker.com/desktop/install/windows-install/
+
+Postman o Insomnia (Puede usar el de su preferencia)
+https://www.postman.com/downloads/
+https://insomnia.rest/download
+
+MobaXterm 
+https://mobaxterm.mobatek.net/download.html
+
+Visual Code
+https://code.visualstudio.com/download
+
+Cuenta en AZURE
+https://azure.microsoft.com/en-us/free/search/?ef_id=_k_Cj0KCQjwn_OlBhDhARIsAG2y6zMTtjPJ2haMHedJccyPa-zR8kw4mzYhgAnjGtdw38eeX4TaTjWwfPwaAmPXEALw_wcB_k_&OCID=AIDcmmsows5neg_SEM__k_Cj0KCQjwn_OlBhDhARIsAG2y6zMTtjPJ2haMHedJccyPa-zR8kw4mzYhgAnjGtdw38eeX4TaTjWwfPwaAmPXEALw_wcB_k_&gclid=Cj0KCQjwn_OlBhDhARIsAG2y6zMTtjPJ2haMHedJccyPa-zR8kw4mzYhgAnjGtdw38eeX4TaTjWwfPwaAmPXEALw_wcB
+
+AZURE CLI
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+
+GIT
+https://git-scm.com/downloads
+
+Azure Data Studio para bases de datos SQL (Puede usar el de su preferencia)
+https://azure.microsoft.com/es-es/products/data-studio
+
+PG Admin v5 o superior para bases de datos Postgres (Puede usar el de su preferencia)
+https://www.pgadmin.org/download/
+
+IDE para bases de datos Mongo (Puede usar el de su preferencia)
+https://studio3t.com/download-studio3t-free/
+	
+IDE para bases de datos Mysql y MariaDB (Puede usar el de su preferencia)
+https://www.heidisql.com/download.php
+
+Node JS
+https://nodejs.org/en/download
+
+Google Chrome
+https://www.google.com/chrome/?brand=YTUH&gclid=Cj0KCQjwn_OlBhDhARIsAG2y6zM4teaHpDf1IFDhtNqznvydfI1Ie1t4c3-meDRCxUhiFOWL57KCgiAaAh4pEALw_wcB&gclsrc=aw.ds
+
+NOTA:
+Si usted utiliza alguna herramienta diferente a las indicadas, puede utilizarlas, recuerde que debe replicar los pasos o configuraciones que el instructor realice en clase.
+Los programas deben ser instalados en su versión comunitaria o free.

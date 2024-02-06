@@ -7,19 +7,21 @@ if __name__ == "__main__":
     connection_manager = MySQLConnection(
         host="localhost",
         user="root",
-        password="Polyglot#3000",
-        database="pumasblog",
-        port = "3307"
+        password="admin",
+        database="instituto",
+        port = "3306"
     )
     
     consulta_insert = """
             INSERT INTO cuentas (numero_cuenta, tipo_cuenta, origen, fecha)
                 VALUES (%s, %s, %s, NOW())
         """
-       
+    
+
+
     def insertar_cuentas(file_path, tipo_cuenta, origen):
         
-        print('iniciando metodo 1')
+        print('iniciando metodo')
 
         # Establecer la conexión
         connection_manager.connect()
@@ -52,10 +54,9 @@ if __name__ == "__main__":
         connection.close()
         # Cerrar la conexión cuando hayas terminado
         
-        print('fin metodo 1')
+        print('fin metodo')
 
 
-      
     # Crear los hilos para ejecutar las funciones
     hilo_cuenta1 = threading.Thread(target=insertar_cuentas, args=("cuentas1.txt","ahorro", "cuenta1.txt" ))
     hilo_cuenta2 = threading.Thread(target=insertar_cuentas, args=("cuentas2.txt","corriente", "cuenta2.txt"))
@@ -63,14 +64,13 @@ if __name__ == "__main__":
     #hilo con tiempo de espera
     #hilo_cuenta2 = threading.Timer(5, function=insertar_cuentas2)
 
-
     # Iniciar los hilos
     hilo_cuenta1.start() 
     hilo_cuenta2.start()
     
     
     # esperamos a que terminen los hilos
-    hilo_cuenta1.join()
-    hilo_cuenta2.join()
+    #hilo_cuenta1.join()
+    #hilo_cuenta2.join()
     
     print('*******hilo programa principal************')
