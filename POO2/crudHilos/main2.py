@@ -17,7 +17,7 @@ if __name__ == "__main__":
                 VALUES (%s, %s, %s, NOW())
         """
        
-    def insertar_cuentas1():
+    def insertar_cuentas(file_path, tipo_cuenta, origen):
         
         print('iniciando metodo 1')
 
@@ -33,14 +33,14 @@ if __name__ == "__main__":
         # Ejecutar una consulta INSERT para insertar una nueva dirección IP
 
         # Manejador de archivos: Seleccionar archivo de una ruta
-        file_path = 'cuentas1.txt'
+        #file_path = 'cuentas1.txt'
         #print('Ini:', datetime.now())
         # Recorrer el archivo
         file = open(file_path)
         for line in file.readlines():
             cuenta = line.strip()
             #print(cuenta)
-            cursor.execute(consulta_insert, (cuenta,"ahorros", "cta1.txt"))
+            cursor.execute(consulta_insert, (cuenta,tipo_cuenta, origen))
         
         file.close()
 
@@ -55,50 +55,10 @@ if __name__ == "__main__":
         print('fin metodo 1')
 
 
-    def insertar_cuentas2():
-        
-        print('iniciando metodo 2')
-
-        # Establecer la conexión
-        connection_manager.connect()
-
-        # Obtener la conexión
-        connection = connection_manager.get_connection()
-
-        # Aquí puedes usar 'connection' para realizar consultas, etc.
-        cursor = connection.cursor()
-
-        # Ejecutar una consulta INSERT para insertar una nueva dirección IP
- 
-        # Manejador de archivos: Seleccionar archivo de una ruta
-        file_path = 'cuentas2.txt'
-        #print('Ini:', datetime.now())
-        # Recorrer el archivo
-        file = open(file_path)
-        for line in file.readlines():
-            cuenta = line.strip()
-            #print(cuenta)
-            cursor.execute(consulta_insert, (cuenta,"corrientes", "cta2.txt"))
-        
-        file.close()
-
-        # Confirmar la transacción
-        connection.commit()
-
-        # Cerrar el cursor y la conexión
-        cursor.close()
-        connection.close()
-        # Cerrar la conexión cuando hayas terminado
-        
-        print('fin metodo 2')
-
-
-    #insertar_cuentas1()
-    #insertar_cuentas2()
-    
+      
     # Crear los hilos para ejecutar las funciones
-    hilo_cuenta1 = threading.Thread(target=insertar_cuentas1)
-    hilo_cuenta2 = threading.Thread(target=insertar_cuentas2)
+    hilo_cuenta1 = threading.Thread(target=insertar_cuentas, args=("cuentas1.txt","ahorro", "cuenta1.txt" ))
+    hilo_cuenta2 = threading.Thread(target=insertar_cuentas, args=("cuentas2.txt","corriente", "cuenta2.txt"))
     
     #hilo con tiempo de espera
     #hilo_cuenta2 = threading.Timer(5, function=insertar_cuentas2)
