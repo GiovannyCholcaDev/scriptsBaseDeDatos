@@ -1,15 +1,18 @@
 from accessData.conexion import MySQLConnection
 import threading
 
+
+
+
 # MAIN PRINCIPAL
 if __name__ == "__main__":
     # Crear una instancia de MySQLConnection
     connection_manager = MySQLConnection(
         host="localhost",
         user="root",
-        password="Polyglot#3000",
-        database="pumasblog",
-        port = "3307"
+        password="admin",
+        database="instituto",
+        port = "3306"
     )
     
     consulta_insert = """
@@ -58,8 +61,8 @@ if __name__ == "__main__":
 
 
     # Crear los hilos para ejecutar las funciones
-    hilo_cuenta1 = threading.Thread(target=insertar_cuentas, args=("cuentas1.txt","ahorro", "cuenta1.txt"))
-    hilo_cuenta2 = threading.Thread(target=insertar_cuentas, args=("cuentas2.txt","corriente", "cuenta2.txt"))
+    hilo_cuenta1 = threading.Thread(target=insertar_cuentas, args=("cuentas1.txt","ahorro", "c1.txt"))
+    hilo_cuenta2 = threading.Thread(target=insertar_cuentas, args=("cuentas2.txt","corriente", "c2.txt"))
     
     #hilo con tiempo de espera
     #hilo_cuenta2 = threading.Timer(5, function=insertar_cuentas2)
@@ -70,7 +73,7 @@ if __name__ == "__main__":
     
     
     # esperamos a que terminen los hilos
-    #hilo_cuenta1.join()
-    #hilo_cuenta2.join()
+    hilo_cuenta1.join()
+    hilo_cuenta2.join()
     
     print('*******hilo programa principal************')

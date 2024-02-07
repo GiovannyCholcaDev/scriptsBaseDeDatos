@@ -2,6 +2,15 @@ import mysql.connector
 
 class MySQLConnection:
 
+    @staticmethod
+    def obtener_conexion():
+        return mysql.connector.connect(
+            database="crud_persona"
+            host="localhost",
+            user="root",
+            password="Polyglot#3000",
+            database="pumasblog",
+    )
 
     def __init__(self, host, user, password, database, port):
         self.host = host
@@ -12,8 +21,8 @@ class MySQLConnection:
         self.connection = None
         print('constructor MySQLConnection')
 
-    #@classmethod
-    def connect(self):
+    @classmethod
+    def connect(self, conexion):
         try:
             self.connection = mysql.connector.connect(
                 host=self.host,
@@ -26,12 +35,12 @@ class MySQLConnection:
         except mysql.connector.Error as err:
             print(f"Error al conectar a la base de datos: {err}")
 
-    #@classmethod
+    @classmethod
     def close(self):
         if self.connection:
             self.connection.close()
             print("Conexión cerrada.")
 
-    #@classmethod
+    @classmethod
     def get_connection(self):
         return self.connection

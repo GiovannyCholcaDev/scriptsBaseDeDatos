@@ -7,9 +7,9 @@ if __name__ == "__main__":
     connection_manager = MySQLConnection(
         host="localhost",
         user="root",
-        password="Polyglot#3000",
-        database="pumasblog",
-        port = "3307"
+        password="admin",
+        database="instituto",
+        port = "3306"
     )
     
     consulta_insert = """
@@ -18,79 +18,86 @@ if __name__ == "__main__":
         """
 
     def insertar_cuentas1():
-        
-        print('iniciando metodo 1')
 
-        # Establecer la conexión
-        connection_manager.connect()
+        try:
+            # Tu código aquí
+            print('iniciando metodo 1')
+            # Establecer la conexión
+            connection_manager.connect()
 
-        # Obtener la conexión
-        connection = connection_manager.get_connection()
+            # Obtener la conexión
+            connection = connection_manager.get_connection()
 
-        # Aquí puedes usar 'connection' para realizar consultas, etc.
-        cursor = connection.cursor()
+            # Aquí puedes usar 'connection' para realizar consultas, etc.
+            cursor = connection.cursor()
 
-        # Ejecutar una consulta INSERT para insertar una nueva dirección IP
+            # Ejecutar una consulta INSERT para insertar una nueva dirección IP
 
-        # Manejador de archivos: Seleccionar archivo de una ruta
-        file_path = 'cuentas1.txt'
-        #print('Ini:', datetime.now())
-        # Recorrer el archivo
-        file = open(file_path)
-        for line in file.readlines():
-            cuenta = line.strip()
-            #print(cuenta)
-            cursor.execute(consulta_insert, (cuenta,"ahorros", "cta1.txt"))
-        
-        file.close()
+            # Manejador de archivos: Seleccionar archivo de una ruta
+            file_path = 'cuentas1.txt'
+            #print('Ini:', datetime.now())
+            # Recorrer el archivo
+            file = open(file_path)
+            for line in file.readlines():
+                cuenta = line.strip()
+                #print(cuenta)
+                cursor.execute(consulta_insert, (cuenta,"ahorros", "cta1.txt"))
+            
+            file.close()
 
-        # Confirmar la transacción
-        connection.commit()
+            # Confirmar la transacción
+            connection.commit()
 
-        # Cerrar el cursor y la conexión
-        cursor.close()
-        connection.close()
-        # Cerrar la conexión cuando hayas terminado
-        
-        print('fin metodo 1')
+            # Cerrar el cursor y la conexión
+            cursor.close()
+            connection.close()
+            # Cerrar la conexión cuando hayas terminado
+            
+            print('fin metodo 1')
+        except Exception as e:
+            print("Ocurrió una excepción1:", e)
 
 
     def insertar_cuentas2():
         
-        print('iniciando metodo 2')
+        try:
+            print('iniciando metodo 2')
 
-        # Establecer la conexión
-        connection_manager.connect()
+            # Establecer la conexión
+            connection_manager.connect()
 
-        # Obtener la conexión
-        connection = connection_manager.get_connection()
+            # Obtener la conexión
+            connection2 = connection_manager.get_connection()
 
-        # Aquí puedes usar 'connection' para realizar consultas, etc.
-        cursor = connection.cursor()
+            # Aquí puedes usar 'connection' para realizar consultas, etc.
+            cursor2 = connection2.cursor()
 
-        # Ejecutar una consulta INSERT para insertar una nueva dirección IP
- 
-        # Manejador de archivos: Seleccionar archivo de una ruta
-        file_path = 'cuentas2.txt'
-        #print('Ini:', datetime.now())
-        # Recorrer el archivo
-        file = open(file_path)
-        for line in file.readlines():
-            cuenta = line.strip()
-            #print(cuenta)
-            cursor.execute(consulta_insert, (cuenta,"corrientes", "cta2.txt"))
-        
-        file.close()
+            # Ejecutar una consulta INSERT para insertar una nueva dirección IP
+    
+            # Manejador de archivos: Seleccionar archivo de una ruta
+            file_path = 'cuentas2.txt'
+            #print('Ini:', datetime.now())
+            # Recorrer el archivo
+            file = open(file_path)
+            for line in file.readlines():
+                cuenta = line.strip()
+                #print(cuenta)
+                cursor2.execute(consulta_insert, (cuenta,"corrientes", "cta2.txt"))
+            
+            file.close()
 
-        # Confirmar la transacción
-        connection.commit()
+            # Confirmar la transacción
+            connection2.commit()
 
-        # Cerrar el cursor y la conexión
-        cursor.close()
-        connection.close()
-        # Cerrar la conexión cuando hayas terminado
-        
-        print('fin metodo 2')
+            # Cerrar el cursor y la conexión
+            cursor2.close()
+            connection2.close()
+            # Cerrar la conexión cuando hayas terminado
+            
+            print('fin metodo 2')
+
+        except Exception as e:
+            print("Ocurrió una excepción2:", e)
 
 
     #insertar_cuentas1()
@@ -103,14 +110,12 @@ if __name__ == "__main__":
     #hilo con tiempo de espera
     #hilo_cuenta2 = threading.Timer(7, function=insertar_cuentas2)
 
-
     # Iniciar los hilos
     hilo_cuenta1.start() 
     hilo_cuenta2.start()
     
-    
     # esperamos a que terminen los hilos
-    hilo_cuenta1.join()
-    hilo_cuenta2.join()
+    #hilo_cuenta1.join()
+    #hilo_cuenta2.join()
     
     print('*******hilo programa principal************')
