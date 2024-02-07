@@ -7,9 +7,9 @@ if __name__ == "__main__":
     connection_manager = MySQLConnection(
         host="localhost",
         user="root",
-        password="admin",
-        database="instituto",
-        port = "3306"
+        password="Polyglot#3000",
+        database="pumasblog",
+        port = "3307"
     )
     
     consulta_insert = """
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
 
     # Crear los hilos para ejecutar las funciones
-    hilo_cuenta1 = threading.Thread(target=insertar_cuentas, args=("cuentas1.txt","ahorro", "cuenta1.txt" ))
+    hilo_cuenta1 = threading.Thread(target=insertar_cuentas, args=("cuentas1.txt","ahorro", "cuenta1.txt"))
     hilo_cuenta2 = threading.Thread(target=insertar_cuentas, args=("cuentas2.txt","corriente", "cuenta2.txt"))
     
     #hilo con tiempo de espera

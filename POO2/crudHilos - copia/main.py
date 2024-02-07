@@ -16,7 +16,7 @@ if __name__ == "__main__":
             INSERT INTO cuentas (numero_cuenta, tipo_cuenta, origen, fecha)
                 VALUES (%s, %s, %s, NOW())
         """
-
+       
     def insertar_cuentas1():
         
         print('iniciando metodo 1')
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     hilo_cuenta2 = threading.Thread(target=insertar_cuentas2)
     
     #hilo con tiempo de espera
-    #hilo_cuenta2 = threading.Timer(7, function=insertar_cuentas2)
+    #hilo_cuenta2 = threading.Timer(5, function=insertar_cuentas2)
 
 
     # Iniciar los hilos
