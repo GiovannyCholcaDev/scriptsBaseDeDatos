@@ -1,0 +1,10 @@
+python.exe -m pip install --upgrade pip
+
+pip install fastapi
+
+pip install uvicorn
+
+
+
+python -m uvicorn main:app --reload
+
