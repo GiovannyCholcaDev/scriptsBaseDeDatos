@@ -1,15 +1,17 @@
+---crear ambiente virtual
+python -m venv myenv
+
+.\myenv\Scripts\activate
+
+
+
 ---actulizar pip
 python.exe -m pip install --upgrade pip
-
 
 ---instalar mysql conector
 python -m pip install mysql-connector-python
 
 
------crear ambiente virtual
-python -m venv myenv
-
-.\myenv\Scripts\activate
 
 --instalar fastapi
 pip install fastapi
