@@ -1,3 +1,6 @@
+from pydantic import BaseModel, Field
+
+
 class Persona:
     def __init__(self, id, nombre, apellido, edad, mail):
         self.id = id
@@ -14,3 +17,8 @@ class Estudiante(Persona):
         self.matricula = matricula
         self.carrera = carrera
         print('clase ESTUDIANTE')
+
+
+class User(BaseModel):
+    email:str
+    password:str
