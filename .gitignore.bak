@@ -10,8 +10,6 @@
 __pycache__/
 *.pyc
 
-database.sqlite
-
 
 # Node
 /node_modules
