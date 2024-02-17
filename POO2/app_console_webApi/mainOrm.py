@@ -1,5 +1,7 @@
-from dominio.dominio import Estudiante
-from servicio.estudianteService import EstudianteService
+from accessData.conexionORM import Database,DATABASE_URL
+from dominio.entities.estudianteModel import Base
+from dominio.entities.modelsOrm import EstudianteBase
+from servicio.estudianteORMService import EstudianteService
 
 
 def mostrar_estudiante(estudiantes):
@@ -8,7 +10,7 @@ def mostrar_estudiante(estudiantes):
 
 
 def main():
-    estudiante_service = EstudianteService()
+   
 
     while True:
         print("\n--- MENU ---")
@@ -27,8 +29,9 @@ def main():
             mail = input("Ingrese el correo electrónico: ")
             matricula = input("Ingrese la matricula: ")
             carrera = input("Ingrese la carrera: ")
-            nuevo_estudiante = Estudiante(None, nombre, apellido, edad, mail, matricula, carrera)
-            estudiante_service.crear_estudiante(nuevo_estudiante)
+            nuevo_estudiante = EstudianteBase(None, nombre, apellido, edad, mail, matricula, carrera)
+            estudiante_service.create_student(nuevo_estudiante)
+        
 
         elif opcion == "2":
             estudiante = estudiante_service.obtener_estudiantes()
@@ -42,7 +45,7 @@ def main():
             mail = input("Ingrese el nuevo correo electrónico: ")
             matricula = input("Ingrese la matricula: ")
             carrera = input("Ingrese la carrera: ")
-            estudiante_actualizada = Estudiante(id_persona, nombre, apellido, edad, mail, matricula, carrera)
+            estudiante_actualizada = EstudianteBase(id_persona, nombre, apellido, edad, mail, matricula, carrera)
             estudiante_service.actualizar_estudiante(estudiante_actualizada)
 
         elif opcion == "4":
@@ -60,4 +63,10 @@ def main():
 
 
 if __name__ == "__main__":
+    db = Database(DATABASE_URL)
+    engine = db.engine
+    # Crea todas las tablas definidas en el modelo
+    #db.Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
+    estudiante_service = EstudianteService(db)
     main()

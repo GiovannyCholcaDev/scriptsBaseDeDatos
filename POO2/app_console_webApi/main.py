@@ -1,4 +1,4 @@
-from dominio.dominio import Estudiante
+from dominio.models import Estudiante
 from servicio.estudianteService import EstudianteService
 
 
