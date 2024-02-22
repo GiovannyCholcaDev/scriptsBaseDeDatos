@@ -1,0 +1,13 @@
+1. Cliente: A la vanguardia de la arquitectura de microservicios se encuentra el cliente, la entidad que desencadena acciones dentro del sistema. Tanto si se trata de una interfaz de usuario como de otro servicio, los clientes inician las solicitudes, poniendo en marcha las ruedas de los microservicios.
+
+2. CDN (Content Delivery Network): CDN garantiza una rápida entrega de contenidos mediante la distribución estratégica de datos a través de servidores geográficamente dispersos. Mejora la experiencia del usuario y reduce la latencia, un aspecto vital de la capacidad de respuesta de los microservicios.
+
+3. Proveedor de identidad: Los proveedores de identidad gestionan la autenticación y autorización de los usuarios, salvaguardando los datos sensibles y garantizando que solo las entidades autorizadas accedan a los microservicios.
+
+4. API Gateway: API Gateway consolida las solicitudes de varios clientes, proporcionando un punto de entrada unificado para la comunicación. Simplifica la complejidad, refuerza la seguridad y ayuda a mantener una arquitectura cohesiva.
+
+5. Microservicios: Son componentes pequeños, independientes y modulares que encapsulan funcionalidades específicas. Operan de forma autónoma, fomentando la agilidad y la escalabilidad en el desarrollo y la implementación.
+
+6. API REST (Representational State Transfer): Las API RESTful sirven como protocolo de comunicación entre microservicios. Permiten un intercambio de datos fluido, siguiendo principios como la apatridia y la arquitectura orientada a los recursos, promoviendo la flexibilidad y la escalabilidad.
+
+7. Registro y descubrimiento de servicios: En el entorno de microservicios dinámicos, un registro de servicios realiza un seguimiento de los servicios disponibles y los mecanismos de detección ayudan a localizarlos y conectarse con ellos. Este dúo dinámico garantiza una comunicación fluida y adaptabilidad en un sistema en constante evolución.
