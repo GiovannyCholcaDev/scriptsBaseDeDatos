@@ -1,18 +1,14 @@
-"""TIPOS DE RESPUESTA"""
 from fastapi import Depends, FastAPI, Body, HTTPException, Path, Query, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.security.http import HTTPAuthorizationCredentials
 from pydantic import BaseModel, Field
 from typing import Coroutine, Optional, List
-from jwt_manager import create_token, validate_token
-from dominio.dominio import User, MovieClass, movies
+from dominio.modelsApi import User, MovieClass, movies
 from fastapi.security import HTTPBearer
-from jwt.exceptions import InvalidTokenError
+from fastapi.encoders import jsonable_encoder
 
-from servicio.jwtService import JWTBearer
 from config.database import Session, engine, Base
 from dominio.entities.movie import Movie
-from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
 app.title = "Mi aplicación con  FastAPI"
@@ -26,15 +22,7 @@ def message():
     return HTMLResponse('<h1>Hello world</h1>')
 
 
-@app.post('/login',tags=["auth"])
-def login(user: User):
-    if user.email == "admin@gmail.com" and user.password == "admin":
-        token: str = create_token(user.dict())
-        return JSONResponse(status_code=200, content=token)
-    return JSONResponse(content=["El correo o el usuario no son correctos"],status_code = 404)
-
-
-@app.get('/moviesAll', tags=['movies'], response_model=List[MovieClass], status_code=200, dependencies=[Depends(JWTBearer())])
+@app.get('/moviesAll', tags=['movies'], response_model=List[MovieClass], status_code=200)
 def get_movies() -> List[MovieClass]:
     db = Session()
     result = db.query(Movie).all()
@@ -42,7 +30,7 @@ def get_movies() -> List[MovieClass]:
 
 
 @app.get('/movies', tags=['movies'], response_model=List[MovieClass], status_code=200)
-def get_movies(jwt: JWTBearer = Depends(JWTBearer())) -> List[MovieClass]:
+def get_movies() -> List[MovieClass]:
     db = Session()
     result = db.query(Movie).all()
     return JSONResponse(status_code=200, content=jsonable_encoder(result))
@@ -66,6 +54,7 @@ def get_movies_by_category(category: str = Query(min_length=5, max_length=15)) -
     if not result:
         return JSONResponse(status_code=404, content={'message':'No encontrado'})
     return JSONResponse(content=jsonable_encoder(result))
+
 
 
 @app.post('/movies', tags=['movies'], response_model=dict, status_code=201)
