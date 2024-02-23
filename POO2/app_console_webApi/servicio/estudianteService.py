@@ -1,4 +1,4 @@
-from dominio.dominio import Estudiante
+from dominio.models import Estudiante
 from accessData.conexion import Conexion
 
 class EstudianteService:
@@ -7,7 +7,7 @@ class EstudianteService:
         pass
 
 
-    def crear_estudiante(self, estudiante):
+    def crear_estudiante(self, estudiante:Estudiante):
         self.connection = Conexion.obtener_conexion()
         self.cursor = self.connection.cursor()
         try:
@@ -31,7 +31,8 @@ class EstudianteService:
             estudiantesList = []
             self.cursor.execute("SELECT * FROM estudiante")
             for (id, nombre, apellido, edad, mail, matricula, carrera) in self.cursor:
-                estudiantesList.append(Estudiante(id, nombre, apellido, edad, mail, matricula, carrera))
+                estud = Estudiante(id, nombre, apellido, edad, mail, matricula, carrera)
+                estudiantesList.append(estud)
             return estudiantesList
         except Exception as err:
             print("Error en la ejecución de la consulta:", err)

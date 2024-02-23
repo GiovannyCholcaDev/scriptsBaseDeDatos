@@ -7,6 +7,7 @@ class Conexion:
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="admin",
-            database="instituto"
+            password="Polyglot#3000",
+            database="instituto",
+            port = "3307"
         )

@@ -1,3 +1,8 @@
+create database instituto;
+
+use instituto;
+
+
 CREATE TABLE estudiante (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(30),

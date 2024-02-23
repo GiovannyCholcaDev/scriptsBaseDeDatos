@@ -22,10 +22,10 @@ class CuentaService:
 
         self.connection_manager = MySQLConnection(
             host="localhost",
-            user="root",
-            password="Polyglot#3000",
+            user="admin",
+            password="admin",
             database="pumasblog",
-            port = "3307"
+            port = "3306"
         )
         
         

@@ -15,7 +15,7 @@ class EstudianteService:
             values = (estudiante.nombre, estudiante.apellido, estudiante.edad, estudiante.mail, estudiante.matricula, estudiante.carrera)
             self.cursor.execute(sql, values)
             self.connection.commit()
-            print("Persona creada exitosamente.")
+            print("Estudiante creada exitosamente.")
         except Exception as err:
             print("Error en el insert:", err)
             self.connection.rollback()

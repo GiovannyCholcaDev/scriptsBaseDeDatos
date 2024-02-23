@@ -5,12 +5,14 @@ class Persona:
         self.apellido = apellido
         self.edad = edad
         self.mail = mail
-        print('clase persona')
+        #print('clase persona')
 
 
 class Estudiante(Persona):
+    
     def __init__(self, id, nombre, apellido, edad, mail, matricula, carrera):
+        
         super().__init__(id, nombre, apellido, edad, mail)
         self.matricula = matricula
         self.carrera = carrera
-        print('clase ESTUDIANTE')
+        #print('clase ESTUDIANTE')

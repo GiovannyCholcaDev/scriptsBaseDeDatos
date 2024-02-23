@@ -1,17 +1,7 @@
 import mysql.connector
 
 class MySQLConnection:
-
-    @staticmethod
-    def obtener_conexion():
-        return mysql.connector.connect(
-            database="crud_persona"
-            host="localhost",
-            user="root",
-            password="Polyglot#3000",
-            database="pumasblog",
-    )
-
+    
     def __init__(self, host, user, password, database, port):
         self.host = host
         self.user = user
