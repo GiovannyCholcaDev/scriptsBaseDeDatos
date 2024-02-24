@@ -40,3 +40,8 @@ libreria para vscode:   sqlLite Viewer
 modulo:  pip install sqlalchemy
 
 #crear carpeta config y dentro el archivo database.py
+
+##################
+para mainOrm
+python -m pip install mysql-connector-python
+ pip install sqlalchemy

@@ -15,28 +15,36 @@ class EstudianteService:
         session.close()
         return db_estudiante
 
-"""
-    def get_person(self, person_id):
+    def get_student_all(self):
+        session = self.db.get_session()
+        personas = session.query(Estudiante).all();
+        session.close()
+        return personas
+
+
+    def get_student(self, person_id):
         session = self.db.get_session()
         person = session.query(Estudiante).filter(Estudiante.id == person_id).first()
         session.close()
         return person
 
-    def update_person(self, person_id, nombre=None, apellido=None, edad=None, mail=None):
+
+    def update_student(self, est: EstudianteBase):
         session = self.db.get_session()
-        person = session.query(Estudiante).filter(Estudiante.id == person_id).first()
-        if nombre:
-            person.nombre = nombre
-        if apellido:
-            person.apellido = apellido
-        if edad:
-            person.edad = edad
-        if mail:
-            person.mail = mail
+        estudiante = session.query(Estudiante).filter(Estudiante.id == est.id).first()
+        if estudiante.nombre:
+            estudiante.nombre = est.nombre
+        if estudiante.apellido:
+            estudiante.apellido = est.apellido
+        if estudiante.edad:
+            estudiante.edad = est.edad
+        if estudiante.mail:
+            estudiante.mail = est.mail
         session.commit()
-        session.refresh(person)
+        session.refresh(estudiante)
         session.close()
-        return person
+        return estudiante
+
 
     def delete_person(self, person_id):
         session = self.db.get_session()
@@ -45,5 +53,8 @@ class EstudianteService:
         session.commit()
         session.close()
         return {"message": "Deleted successfully"}
-        
-"""
+    
+
+    def cerrarConexion(self):
+        session = self.db.get_session()
+        session.close()

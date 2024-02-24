@@ -1,6 +1,3 @@
-from typing import Optional
-from pydantic import BaseModel
-
 class EstudianteBase():
        def __init__(self, id, nombre, apellido, edad, mail, matricula, carrera):
         self.id = id
