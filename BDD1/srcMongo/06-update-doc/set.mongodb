@@ -1,0 +1,20 @@
+use("baseDatosII")
+
+db.products.find()
+
+
+db.products.updateOne(
+  // query
+  {_id: 1},
+  // change => operators
+  {
+    $set: {
+      name: 'Change name 2',
+      price: 3000,
+      tags: ['A', 'B', 'C']
+    }
+  }
+)
+
+
+db.products.find()

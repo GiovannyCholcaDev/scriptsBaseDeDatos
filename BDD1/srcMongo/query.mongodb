@@ -1,0 +1,3 @@
+use("baseDatosII")
+
+db.estudiantes.find()

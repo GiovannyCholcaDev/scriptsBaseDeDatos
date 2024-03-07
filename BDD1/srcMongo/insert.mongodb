@@ -1,0 +1,15 @@
+use("baseDatosII")
+
+db.products.insertOne({
+  _id: 1,
+  name: "Product 5",
+  price: 1000
+})
+
+db.products.insertOne({
+  _id: 2,
+  name: "Product 6",
+  price: 100
+})
+
+db.products.find()

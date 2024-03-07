@@ -1,0 +1,16 @@
+use("baseDatosII")
+
+
+db.products.updateOne(
+  // query
+  {_id: 1},
+  // change => operators
+  {
+    $inc: {
+      price: 10,
+    }
+  }
+)
+
+
+db.products.find()
