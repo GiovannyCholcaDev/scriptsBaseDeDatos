@@ -32,13 +32,13 @@ class EstudianteService:
     def update_student(self, est: EstudianteBase):
         session = self.db.get_session()
         estudiante = session.query(Estudiante).filter(Estudiante.id == est.id).first()
-        if estudiante.nombre:
+        if est.nombre:
             estudiante.nombre = est.nombre
-        if estudiante.apellido:
+        if est.apellido:
             estudiante.apellido = est.apellido
-        if estudiante.edad:
+        if est.edad:
             estudiante.edad = est.edad
-        if estudiante.mail:
+        if est.mail:
             estudiante.mail = est.mail
         session.commit()
         session.refresh(estudiante)
